@@ -4,63 +4,46 @@ class Task extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      tasks: props.list,
+      renderList: [...this.props.mList],
     };
   }
 
-  doneBtnHandle(item) {
-    this.setState(
-      this.state.tasks.map((items) => {
-        if (items.key != item.key) {
-          return items;
-        } else {
-          items.finished = !items.finished;
-          return items;
-        }
-      })
-    );
+  componentDidUpdate(prevProps) {
+    if (prevProps.mList !== this.props.mList) {
+      this.setState({ renderList: [...this.props.mList] });
+    }
   }
 
   render() {
     return (
-      <div id="tasksSection">
-        {this.state.tasks.map((item) => {
+      <div id="tasks">
+        {this.state.renderList.map((item) => {
           return (
-            <div key={item.key} className="tasks">
-              <p className="tasksTime">{item.addingTime}</p>
-              <p
+            <div className="task" key={item.key}>
+              <p className="tasksDate">{item.addDate}</p>
+              <h3
                 className="tasksText"
                 style={
-                  item.finished ? { textDecoration: "line-through" } : null
+                  item.finished
+                    ? { textDecoration: "line-through" }
+                    : { textDecoration: "none" }
                 }
               >
-                {" "}
                 {item.text}
-              </p>
-
-              {!item.finished ? (
-                <button
-                  className="tasksDoneBtn"
-                  onClick={() => {
-                    this.doneBtnHandle(item);
-                  }}
-                >
-                  Done
-                </button>
-              ) : (
-                true
-              )}
-
+              </h3>
               <button
-                className="tasksDeleteBtn"
+                className="taskFinishBtn"
                 onClick={() => {
-                  this.props.deleteHandle(item);
-                  this.setState({ tasks: this.props.list });
-                  console.log("tasksBody state", this.state.tasks);
-                  console.log("addingSection state", this.props.list);
+                  this.props.mChangeFinished(item);
                 }}
               >
-                Delete{" "}
+                Finish
+              </button>
+              <button
+                className="taskDeleteBtn"
+                onClick={() => this.props.mListChange(false, item)}
+              >
+                Delete
               </button>
             </div>
           );

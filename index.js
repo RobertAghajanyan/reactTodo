@@ -6,9 +6,6 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <div id="titelBody">
-      <h1 id="titel">To-Do List</h1>
-    </div>
     <App />
   </React.StrictMode>
 );
