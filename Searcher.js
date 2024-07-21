@@ -1,6 +1,6 @@
 import React from "react";
 
-class SearchBarr extends React.Component {
+class SearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,9 +8,33 @@ class SearchBarr extends React.Component {
     };
   }
 
+  inpHandle = (event) => {
+    this.setState({ inputValue: event.target.value.trim() });
+    if (this.state.inputValue) {
+      this.props.setFilteredRenderList(
+        this.props.rList.filter((item) =>
+          item.text.includes(event.target.value.trim())
+        )
+      );
+    }
+  };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.inputValue !== this.state.inputValue) {
+      const filteredTasks = this.props.mList.filter((item) =>
+        item.text.includes(this.state.inputValue)
+      );
+      this.props.setFilteredRenderList(filteredTasks);
+    }
+  }
+
   render() {
-    return;
+    return (
+      <div id="Searcher">
+        <input type="text" id="SearcherInp" onChange={this.inpHandle} />
+      </div>
+    );
   }
 }
 
-export default SearchBarr;
+export default SearchBar;

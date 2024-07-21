@@ -3,6 +3,7 @@ import AddingSection from "./AddingSection";
 import Title from "./Title";
 import Task from "./tasksBody";
 import Filters from "./Filters";
+import SearchBar from "./Searcher";
 
 class MainDesk extends React.Component {
   constructor(prop) {
@@ -46,7 +47,7 @@ class MainDesk extends React.Component {
         }
         return el;
       }),
-      renderList: prevState.mainList.map((el) => {
+      renderList: prevState.renderList.map((el) => {
         if (el.key === item.key) {
           return { ...el, finished: !el.finished };
         }
@@ -59,6 +60,18 @@ class MainDesk extends React.Component {
     return (
       <>
         <Title />
+        <SearchBar
+          mList={this.state.mainList}
+          rList={this.state.renderList}
+          setFilteredRenderList={this.setFilteredRenderList}
+          rListReset={this.renderListReset}
+        />
+        <Filters
+          mList={this.state.mainList}
+          rList={this.state.renderList}
+          setFilteredRenderList={this.setFilteredRenderList}
+          rListReset={this.renderListReset}
+        />
         <AddingSection
           rList={this.state.renderList}
           mListChange={this.changeList}
@@ -67,12 +80,6 @@ class MainDesk extends React.Component {
           rList={this.state.renderList}
           mListChange={this.changeList}
           mChangeFinished={this.changeFinished}
-        />
-        <Filters
-          mList={this.state.mainList}
-          rList={this.state.renderList}
-          setFilteredRenderList={this.setFilteredRenderList}
-          rListReset={this.renderListReset}
         />
       </>
     );
