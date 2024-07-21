@@ -3,21 +3,13 @@ import React from "react";
 class Task extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      renderList: [...this.props.mList],
-    };
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.mList !== this.props.mList) {
-      this.setState({ renderList: [...this.props.mList] });
-    }
+    this.state = {};
   }
 
   render() {
     return (
       <div id="tasks">
-        {this.state.renderList.map((item) => {
+        {this.props.rList.map((item) => {
           return (
             <div className="task" key={item.key}>
               <p className="tasksDate">{item.addDate}</p>
