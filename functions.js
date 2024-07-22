@@ -11,9 +11,21 @@ const methodsForAddingSection = {
       "Saturday",
     ];
 
-    return `${
-      daysOfWeek[addDate.getDay()]
-    } ${addDate.getHours()}:${addDate.getMinutes()}`;
+    let myDate = daysOfWeek[addDate.getDay()] + " ";
+
+    if (addDate.getHours().length < 10) {
+      myDate += "0" + addDate.getHours() + ":";
+    } else {
+      myDate += addDate.getHours() + ":";
+    }
+
+    if (addDate.getMinutes().length < 10) {
+      myDate += "0" + addDate.getMinutes();
+    } else {
+      myDate += addDate.getMinutes() + "";
+    }
+
+    return myDate;
   },
 };
 

@@ -23,20 +23,22 @@ class Task extends React.Component {
               >
                 {item.text}
               </h3>
-              <button
-                className="taskFinishBtn"
-                onClick={() => {
-                  this.props.mChangeFinished(item);
-                }}
-              >
-                Finish
-              </button>
-              <button
-                className="taskDeleteBtn"
-                onClick={() => this.props.mListChange(false, item)}
-              >
-                Delete
-              </button>
+              <div className="buttonsDiv">
+                <button
+                  className="taskFinishBtn"
+                  onClick={() => {
+                    this.props.mChangeFinished(item);
+                  }}
+                >
+                  Finish
+                </button>
+                <button
+                  className="taskDeleteBtn"
+                  onClick={() => this.props.mListChange(false, item)}
+                >
+                  Delete
+                </button>
+              </div>
             </div>
           );
         })}

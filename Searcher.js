@@ -31,7 +31,12 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div id="Searcher">
-        <input type="text" id="SearcherInp" onChange={this.inpHandle} />
+        <input
+          type="text"
+          id="SearcherInp"
+          placeholder="Search Task"
+          onChange={this.inpHandle}
+        />
       </div>
     );
   }

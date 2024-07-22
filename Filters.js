@@ -39,23 +39,31 @@ class Filters extends React.Component {
     }
   };
 
+  selectedBtn(name) {
+    if (name === this.state.activeFilter) {
+      return true;
+    }
+  }
+
   componentDidUpdate() {
     console.log(this.props.rList);
   }
 
   render() {
     return (
-      <div className="filters">
+      <div id="filters">
         <button
           className="filterButtons"
-          id="finishedF"
+          id={this.selectedBtn("fin") ? "finishedFSelect" : "finishedF"}
           onClick={this.filterButtonsHandle}
         >
           Finished Tasks
         </button>
         <button
           className="filterButtons"
-          id="notFinishedF"
+          id={
+            this.selectedBtn("notFin") ? "notFinishedFSelect" : "notFinishedF"
+          }
           onClick={this.filterButtonsHandle}
         >
           Not Finished Tasks

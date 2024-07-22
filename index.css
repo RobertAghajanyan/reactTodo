@@ -1,3 +1,153 @@
 body {
   margin: 0;
+  background-color: rgb(11, 11, 11);
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#header {
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+}
+
+#Searcher {
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background-color: rgb(187, 187, 187);
+}
+
+#SearcherInp {
+  width: 200px;
+  height: 20px;
+  border: none;
+  border-radius: 8px;
+}
+
+#SearcherInp::placeholder {
+  text-align: center;
+}
+
+#filters {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(145, 143, 143);
+  padding: 8px;
+}
+
+.filterButtons {
+  width: 130px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+#finishedF {
+  border-right: solid;
+  border-color: rgb(200, 200, 200);
+}
+#notFinishedF {
+  border-right: solid;
+  border-color: rgb(200, 200, 200);
+}
+
+.filterButtons:hover {
+  background-color: rgb(60, 59, 59);
+  color: white;
+}
+
+#finishedFSelect {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}
+
+#notFinishedFSelect {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}
+
+#adderClose {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(118, 116, 116);
+}
+
+#addTasksBtn {
+  width: 380px;
+  height: 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#addTasksBtn:hover {
+  background-color: rgb(183, 183, 183);
+  color: white;
+}
+
+#adderOpen {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(118, 116, 116);
+}
+
+#addingInp {
+  width: 326px;
+  height: 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+#addingApplyBtn {
+  width: 50px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+#addingApplyBtn:hover {
+  background-color: rgb(183, 183, 183);
+  color: white;
+}
+
+#tasks {
+  background-color: white;
+  width: 80%;
+  margin: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(144, 144, 144);
+  color: white;
+  padding: 4px;
+}
+
+.tasksDate {
+  width: 60px;
+  height: 30px;
+  border-right: solid;
+}
+
+.tasksText {
+  width: 200px;
+}
+
+.buttonsDiv {
+  display: flex;
+  justify-content: center;
 }

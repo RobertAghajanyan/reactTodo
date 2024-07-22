@@ -49,7 +49,7 @@ class Adding extends React.Component {
     } else {
       return (
         <div id="adderClose">
-          <button id="addTaksBtn" onClick={this.addTaskBtnHandle}>
+          <button id="addTasksBtn" onClick={this.addTaskBtnHandle}>
             Add Task
           </button>
         </div>
